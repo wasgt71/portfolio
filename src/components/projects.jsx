@@ -19,6 +19,35 @@ function Projects() {
     setProjects(projectData);
   };
 
+  const slideForward = () => {
+    const removeProjects = projects.splice(0, 3);
+    console.log(removeProjects);
+    const length = projects.length;
+    const slide = projects.splice(
+      length,
+      1,
+      removeProjects[0],
+      removeProjects[1],
+      removeProjects[2]
+    );
+    setProjects((prevProjects) => [...prevProjects]);
+    console.log(projects);
+  };
+
+  const slideBackward = () => {
+    const length = projects.length;
+    const removeProjects = projects.splice(length - 3, 3);
+    const slide = projects.splice(
+      0,
+      0,
+      removeProjects[0],
+      removeProjects[1],
+      removeProjects[2]
+    );
+    console.log(projects);
+    setProjects((prevProject) => [...prevProject]);
+  };
+
   useEffect(() => {
     fetchProjects();
   }, []);
@@ -26,6 +55,7 @@ function Projects() {
   return (
     <>
       <div id="projects-container">
+        <button onClick={slideBackward}>slide</button>
         {projects.length > 0 && (
           <div className="project-item">
             <div id="image-wrap">
@@ -82,6 +112,7 @@ function Projects() {
             </div>
           </div>
         )}
+        <button onClick={slideForward}>Slide</button>
       </div>
     </>
   );
