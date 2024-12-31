@@ -1,39 +1,90 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function Projects() {
-    return (
-        <>
-        <section id="projects">
-          <div id="projHeading">
-            <img id="projImg" src="./images/projects.png" alt="Projects" />
-          </div>
-          <div className="project-grid">
-            <div className="image-container">
-              <img
-                className="projImg"
-                src="./images/battleship.png"
-                alt="Battleship game screenshot"
-              />
-              <div className="overlay-text">
-                BattleShip Game using Breadth-First Search Algorithm
-                <br />
-                <a
-                  href="https://github.com/yourusername/battleship"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+  const [projects, setProjects] = useState([]);
+  const [lock, setLock] = useState(true);
+
+  const fetchProjects = async () => {
+    const response = await axios.get(
+      "https://api.github.com/users/wasgt71/repos"
+    );
+    console.log(response);
+    const data = response.data;
+
+    const projectData = data.map((project) => ({
+      name: project.name,
+      url: project.html_url,
+    }));
+    setProjects(projectData);
+  };
+
+  useEffect(() => {
+    fetchProjects();
+  }, []);
+
+  return (
+    <>
+      <div id="projects-container">
+        {projects.length > 0 && (
+          <div className="project-item">
+            <div id="image-wrap">
+              <img id="chatbot-img" src="/chatbot.png" alt="Ai-Chatbot" />
+              <div id="overlay">
+                <p id="overlay-text">{projects[0].name}</p>
+                <a href={projects[0].url}>
                   <img
-                    src="./favicons/github.png"
+                    src="./github.png"
                     alt="GitHub Logo"
-                    className="github-favicon"
+                    id="github-favicon"
                   />
                 </a>
-                <button className="live-view">View</button>
+                <button id="live-view">View</button>
               </div>
             </div>
           </div>
-        </section>
-        </>
-    )
+        )}
+
+        {projects.length > 1 && (
+          <div className="project-item">
+            <div id="image-wrap">
+              <img id="chatbot-img" src="/chatbot.png" alt="Ai-Chatbot" />
+              <div id="overlay">
+                <p id="overlay-text">{projects[1].name}</p>
+                <a href={projects[1].url}>
+                  <img
+                    src="./github.png"
+                    alt="GitHub Logo"
+                    id="github-favicon"
+                  />
+                </a>
+                <button id="live-view">View</button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {projects.length > 2 && (
+          <div className="project-item">
+            <div id="image-wrap">
+              <img id="chatbot-img" src="/chatbot.png" alt="Ai-Chatbot" />
+              <div id="overlay">
+                <p id="overlay-text">{projects[2].name}</p>
+                <a href={projects[2].url}>
+                  <img
+                    src="./github.png"
+                    alt="GitHub Logo"
+                    id="github-favicon"
+                  />
+                </a>
+                <button id="live-view">View</button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </>
+  );
 }
 
 export default Projects;
