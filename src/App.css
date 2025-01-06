@@ -1,3 +1,185 @@
+#app-container {
+  position: relative;
+  z-index: 10;
+  
+}
+
+#bg {
+  width: 100%;
+  z-index: -10;
+}
+
+#bg:hover {
+  cursor: pointer;
+}
+
+.Container {
+  background: white;
+  margin-top: 10%;
+  padding-top: 1%;
+  width: 100%;
+}
+
+main {
+  z-index: 10;
+}
+.App {
+  width: 80%;
+  margin: auto;
+  height: auto;
+  padding-bottom: 5%;
+}
+
+.slide img {
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.slide {
+  transform: scale(0.5);
+  transition: transform 330ms;
+  opacity: 0.5;
+}
+
+.activeSlide {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.arrow {
+  background-color: #fff;
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.arrow svg {
+  transition: color 300ms;
+}
+
+.arrow svg:hover {
+  color: #68edff;
+}
+
+.next {
+  right: 0%;
+  top: 50%;
+}
+
+.prev {
+  left: 0%;
+  top: 50%;
+}
+/*------------------*/
+button{
+  border: none;
+  cursor: pointer;
+  color: white;
+  background: none;
+  transition: all .3s ease-in-out;
+}
+
+
+
+.carousel-view {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 20px;
+padding: 44px 0;
+transition: all 0.25s ease-in-out;
+transform-style: preserve-3d;
+position: relative;
+}
+
+.item-list {
+  display: flex;
+  gap: 20px;
+  width: auto;
+  padding: 50px 10px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  transform-style: preserve-3d;
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+  
+}
+
+.carousel-view .item-list {
+perspective: 1000px;
+max-width: 950px;
+width: 70vw;
+padding: 50px 10px;
+display: flex;
+gap: 48px;
+scroll-behavior: smooth;
+transition: all 0.25s ease-in;
+-ms-overflow-style: none; /* IE and Edge */
+scrollbar-width: none; /* Firefox */
+overflow: auto;
+scroll-snap-type: x mandatory;
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.item-list::-webkit-scrollbar {
+display: none;
+}
+
+.prev-btn {
+background: none;
+cursor: pointer;
+}
+
+.next-btn {
+cursor: pointer;
+}
+
+.item {
+min-width: 150px;
+max-height: 100px;
+border-radius:8px;
+padding: 10%;
+transition: transform 0.5s ease;
+transform-origin: center center;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+background: transparent;
+border-radius: 10px;
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+transform-origin: center;
+transition: transform 0.3s ease-in-out;
+transform-style: preserve-3d;
+scroll-snap-align: center;
+}
+
+.item:not(.active) {
+  transform: rotateY(45deg); /* Rotate items slightly */
+  opacity: 0.7;
+  z-index: 5;
+}
+
+.item.left {
+  transform: rotateY(-25deg);
+  opacity: 0.8;
+}
+
+.item.right {
+  transform: rotateY(25deg);
+  opacity: 0.8;
+}
+
+.item.active {
+  transform: scale(1.2) rotateY(0deg);
+  z-index: 10;
+}
+
+/*3D SLIDR*/
+
 #portfolio {
   text-align: center;
 }
@@ -7,39 +189,118 @@ body {
   line-height: 1.6;
 }
 
+/*CONTACT COMPONENT CSS*/
+#contact-container {
+  box-shadow: 1px 0px 8px rgba(0, 0, 0, 0.2);
+  /*border-radius: 10px;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 3%;
+  padding-bottom: 0.5%;
+  position: relative;
+  left: 90%;
+  position: sticky;*/
+  font-family: "Andale Mono", monospace;
+  font-size: 20px;
+  border-radius: 3px;
+  width: 20%;
+  position: relative;
+  left: 72%;
+  top: 9%;
+  position: sticky;
+  background: white;
+}
+
+.contact-input {
+  margin: auto;
+  width: 70%;
+  border-radius: 1px;
+  border: 1px solid black;
+  margin-bottom: 10%;
+  font-size: 15px;
+}
+
 /* HEADER COMPONENT CSS */
 
 #header {
   padding-bottom: 3%;
+  z-index: 10;
+  
+}
+
+#name {
+  text-align: left;
+  width: 70%;
+  margin-left: 22%;
+  z-index: 10;
 }
 
 #portfolio-title {
   color: black;
   margin-top: -2%;
+  text-align: left;
+  width: 70%;
+  margin-left: 28%;
+  z-index: 10;
+
 }
 
-
-/* PROJECTS COMPONENT CSS */
-
-#projects-container {
-  display: flex;
-  flex-wrap: wrap;
-  border: 1px solid transparent;
-  box-shadow: 1px 0px 8px rgba(0, 0, 0, 0.2);
-  padding-bottom: 4%;
-  padding-top: 1%;
-  max-width: 90%;
+#contact {
+  border-top: 2px double rgb(0, 0, 219);
+  border-right: 2px double rgb(0, 0, 219);
+  border-bottom: 2px double rgb(255, 0, 255);
+  border-left: 2px double rgb(255, 0, 255);
+  font-family: "Andale Mono", monospace;
+  font-size: 20px;
   border-radius: 3px;
-  margin: auto;
   position: relative;
-  
+  left: 95%;
+  top: 20px;
+  background: linear-gradient(to right, rgb(0, 0, 219), rgb(255, 0, 255));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: sticky;
+  padding: 0.3%;
+  z-index: 7;
 }
 
-.project-item {
-flex: 1;
-max-width: 50%;
-position: relative;
+#contact-info {
+  font-family: "Andale Mono", monospace;
+  border-radius: 3px;
+  background: linear-gradient(to right, rgb(0, 0, 219), rgb(255, 0, 255));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding: 0.3%;
+  z-index: 7;
 }
+
+#contact:hover {
+  cursor: pointer;
+  border-top: 2px double rgb(255, 0, 255);
+  border-right: 2px double rgb(255, 0, 255);
+  border-bottom: 2px double rgb(0, 0, 219);
+  border-left: 2px double rgb(0, 0, 219);
+  opacity: 0.8;
+}
+
+#contact:active {
+  border: 2px double silver;
+  transform: scale(1.01);
+}
+
+
+
+
+
+#project-item {
+  flex: 1;
+  max-width: 50%;
+  position: relative;
+}
+
+
 
 #project-grid {
   display: flex;
@@ -49,12 +310,11 @@ position: relative;
 }
 
 #project-img {
-width: 200px;
+  width: 200px;
 }
 
 #projects-png {
   max-width: 200px;
-  
 }
 #overlay {
   position: absolute;
@@ -81,26 +341,23 @@ width: 200px;
   padding-bottom: 10%;
 }
 
-
 #image-wrap {
-margin: auto;
-display: flex;
-align-items: center;
-justify-content: center;
-text-align: center;
-border-radius: 10px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 10px;
 }
 
 #overlay:hover {
   opacity: 1;
 }
 
-
 #overlay-text {
-position: relative;
-top: 10%;
-border-radius: 15px;
-
+  position: relative;
+  top: 10%;
+  border-radius: 15px;
 }
 .image-container {
   width: 400px;
@@ -108,29 +365,26 @@ border-radius: 15px;
   position: relative;
 }
 
-
 #chatbot-img {
-max-width: 70%;
-height: auto;
-border-radius: 10px;
-padding-top: 10%;
-
-
+  max-width: 70%;
+  height: auto;
+  border-radius: 10px;
+  padding-top: 10%;
 }
 
 #live-view {
-position: relative;
-top: 57px;
-left: 25%;
-border-radius: 3px;
-background: none;
-border: 1px solid transparent;
-color: black;
-height: 25px;
-background: white;
+  position: relative;
+  top: 57px;
+  left: 25%;
+  border-radius: 3px;
+  background: none;
+  border: 1px solid transparent;
+  color: black;
+  height: 25px;
+  background: white;
 }
 
-#live-view:hover{
+#live-view:hover {
   cursor: pointer;
   opacity: 0.9;
 }
@@ -150,45 +404,78 @@ background: white;
 
 /* ABOUT ME COMPONENT CSS */
 
+@keyframes shake {
+  0% {
+    transform: scale(1) rotate(0.3deg);
+  }
+  25% {
+    transform: scale(1.01) rotate(-0.3deg);
+  }
+  50% {
+    transform: scale(1) rotate(0.3deg);
+  }
+  75% {
+    transform: scale(1.01) rotate(-0.3deg);
+  }
+  100% {
+    transform: scale(1) rotate(0.3deg);
+  }
+}
+
+.shake-and-hover {
+  animation: shake 10s ease-in-out infinite;
+  z-index: 10;
+}
 
 #profile-picture {
-width: 200px;
-padding: 30px;
-margin: auto;
+  width: 200px;
+  padding: 30px;
+  margin: auto;
+  z-index: 10;
+}
+
+#profile-picture:hover {
+  cursor: pointer;
+}
+
+#profile-picture:active {
+  opacity: 0.7;
 }
 
 #about-text {
   position: relative;
   top: 20px;
   padding-left: 20px;
+  z-index: 10;
 }
 
 #about-me {
-position: relative;
-top: 10px;
+  position: relative;
+  top: 10px;
+  z-index: 10;
 }
-
 
 #about {
   padding-top: 125px;
+  z-index: 10;
 }
 
 #profile-container {
   display: flex;
   flex: 1;
   align-items: flex-start;
-  border-radius: 10px;
-  box-shadow: 1px 0px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   max-width: 70rem;
   margin: auto;
   margin-bottom: 10%;
-  background-color: #fff;
+  background-color: white;
   font-family: Andale mono, monospace;
   text-align: left;
+  z-index: 10;
+  border-radius: 2px;
+ 
 }
-
-
 
 #profile-image {
   border-radius: 10px 0 0 10px;
@@ -197,14 +484,14 @@ top: 10px;
   padding: 40px 150px 40px 100px;
   border: none;
   background-color: #fff;
+  z-index: 10;
 }
 
-
 header {
+  
   padding: 1rem;
   text-align: center;
   font-family: Andale mono, monospace;
-  z-index: 1;
   margin-top: 1.5rem;
   font-size: 1.7rem;
   font-weight: bold;
@@ -212,12 +499,10 @@ header {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  z-index: 10;
+  margin: auto;
+ 
 }
-
-
-
-
-
 
 .favicon {
   max-width: 80px;
@@ -226,17 +511,21 @@ header {
   margin-left: -70px;
 }
 
-
-
 /* FOOTER COMPONENT CSS */
 
-footer{
+footer {
   text-align: center;
-  font-family: Andale mono, monospace;
-  color: white;
-  background: rgb(104, 102, 102);
-  margin-top: 120px;
+  font-family:'Courier New', Courier, monospace;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
-  box-shadow: 1px 0px 8px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+  
 }
+
+#footer-text {
+  margin: auto;
+  padding: 2px;
+  z-index: 10;
+}
+
