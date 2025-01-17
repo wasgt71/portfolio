@@ -1,3 +1,15 @@
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: black;
+}
+
 .section {
   height: 90vh;
   text-align: center;
@@ -5,14 +17,49 @@
   align-items: center;
 }
 
+#favicons {
+  position: fixed;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  padding-top: 5px;
+  padding-left: 2px;
+  padding-right: 2px; 
+  top: 0; 
+  right: 0;
+  z-index: 9999;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+
+.favicon {
+  max-width: 1.5rem;
+  margin: auto;
+  padding: 2px;
+  padding-top: 2px; 
+  
+}
+
+.favicon:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+#email-favicon {
+  width: 2rem;
+  position: relative;
+  top: 2px;
+}
+
+#email-favicon:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
 
 #app-container {
   position: relative;
   z-index: 10;
-  
 }
-
-
 
 #bg {
   width: 100%;
@@ -33,7 +80,6 @@
   margin-top: 10%;
 }
 
-
 main {
   z-index: 10;
 }
@@ -49,9 +95,8 @@ main {
   width: 80%;
   height: auto;
   margin: 0 auto;
-  
+
   border-radius: 5px;
- 
 }
 
 .slide {
@@ -77,7 +122,7 @@ main {
 }
 
 .arrow svg:hover {
-  color: #B300EE;
+  color: #b300ee;
 }
 
 .next {
@@ -99,14 +144,12 @@ body {
   line-height: 1.6;
 }
 
-
 /* HEADER COMPONENT CSS */
 
 #header {
   padding-bottom: 3%;
   z-index: 10;
   margin-top: -5%;
-  
 }
 
 #name {
@@ -125,17 +168,13 @@ body {
   width: 70%;
   margin-left: 28%;
   z-index: 10;
-
 }
-
 
 #project-item {
   flex: 1;
   max-width: 50%;
   position: relative;
 }
-
-
 
 #project-grid {
   display: flex;
@@ -152,7 +191,6 @@ body {
   max-width: 200px;
 }
 
-
 #image-wrap {
   margin: auto;
   display: flex;
@@ -165,7 +203,6 @@ body {
 #overlay:hover {
   opacity: 1;
 }
-
 
 .image-container {
   width: 400px;
@@ -282,7 +319,6 @@ body {
   text-align: left;
   z-index: 10;
   border-radius: 2px;
- 
 }
 
 #profile-image {
@@ -296,7 +332,6 @@ body {
 }
 
 header {
-  
   padding: 1rem;
   text-align: center;
   font-family: Andale mono, monospace;
@@ -309,20 +344,17 @@ header {
   color: transparent;
   z-index: 10;
   margin: auto;
- 
 }
 
 /* FOOTER COMPONENT CSS */
 
 footer {
   text-align: center;
-  font-family:'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   background: rgba(0, 0, 0, 0.9);
   color: #ffffff;
- 
-  
 }
 
 #footer-text {
@@ -330,4 +362,3 @@ footer {
   padding: 2px;
   z-index: 10;
 }
-
