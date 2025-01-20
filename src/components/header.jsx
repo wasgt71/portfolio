@@ -41,9 +41,12 @@ function Header() {
 
   return (
     <>
-      <button onClick={(e) => setLock(false)} id="contact">
-        Contact
-      </button>
+    <div id="favicons">
+    <a href="https://github.com/wasgt71"><img src="github.png" className="favicon"></img></a>
+    <a href="mailto:wasgt21@gmail.com"><img src="email.png" id="email-favicon"></img></a>
+    <a href="tel:+3215270367"><img src="phone.png" className="favicon"></img></a>
+    </div>
+
       <header id="header">
         <h1 id="name">{name}</h1>
         <h3 className="fade-in" id="portfolio-title">

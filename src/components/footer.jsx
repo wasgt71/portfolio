@@ -3,7 +3,8 @@ function Footer() {
         <>
           <footer>
           <div>
-            <p>&copy; 2024 Tristan Wassilyn. Made with tenacity.</p>
+            <p id="footer-text">&copy; 2024 Tristan Wassilyn. Made with tenacity.</p>
+            
           </div>
         </footer>
       

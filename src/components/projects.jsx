@@ -3,8 +3,7 @@ import axios from "axios";
 
 function Projects() {
   const [projects, setProjects] = useState([]);
-  const [lock, setLock] = useState(true);
-
+  const [lock, setLock] = useState("");
   const fetchProjects = async () => {
     const response = await axios.get(
       "https://api.github.com/users/wasgt71/repos"
@@ -20,17 +19,22 @@ function Projects() {
   };
 
   const slideForward = () => {
-    const removeProjects = projects.splice(0, 3);
-    console.log(removeProjects);
-    const length = projects.length;
-    const slide = projects.splice(
-      length,
-      1,
-      removeProjects[0],
-      removeProjects[1],
-      removeProjects[2]
-    );
-    setProjects((prevProjects) => [...prevProjects]);
+    setLock("slide");
+    setTimeout(() => {
+      const removeProjects = projects.splice(0, 3);
+      console.log(removeProjects);
+      const length = projects.length;
+      const slide = projects.splice(
+        length,
+        1,
+        removeProjects[0],
+        removeProjects[1],
+        removeProjects[2]
+      );
+      setProjects((prevProjects) => [...prevProjects]);
+      setLock("");
+    }, 5000);
+
     console.log(projects);
   };
 
@@ -54,29 +58,44 @@ function Projects() {
 
   return (
     <>
-      <div id="projects-container">
-        <button onClick={slideBackward}>slide</button>
-        {projects.length > 0 && (
-          <div className="project-item">
-            <div id="image-wrap">
-              <img id="chatbot-img" src="/chatbot.png" alt="Ai-Chatbot" />
-              <div id="overlay">
-                <p id="overlay-text">{projects[0].name}</p>
-                <a href={projects[0].url}>
-                  <img
-                    src="./github.png"
-                    alt="GitHub Logo"
-                    id="github-favicon"
-                  />
-                </a>
-                <button id="live-view">View</button>
-              </div>
-            </div>
-          </div>
-        )}
+      {" "}
+      {/*projects container */}
+      <div id="container">
+        <div className="carousel-view">
+          <button className="slide-btn" onClick={slideBackward}>
+            slide
+          </button>
+
+     
+
+          {projects.map((project) => {
+            return (
+              <>
+                <div class={lock} id="project-item">
+                  {/* id="image-wrap"*/}
+                  <div id="item-list" className="item-list">
+                    {/*id="chatbot-img"*/}
+                    <img id="item" src="/chatbot.png" alt="Ai-Chatbot" />
+                    <div id="overlay">
+                      <p id="overlay-text">{project.name}</p>
+                      <a href={project.url}>
+                        <img
+                          src="./github.png"
+                          alt="GitHub Logo"
+                          id="github-favicon"
+                        />
+                      </a>
+                      <button id="live-view">View</button>
+                    </div>
+                  </div>
+                </div>
+              </>
+            );
+          })}
+        </div>
 
         {projects.length > 1 && (
-          <div className="project-item">
+          <div className={lock} id="project-item">
             <div id="image-wrap">
               <img id="chatbot-img" src="/chatbot.png" alt="Ai-Chatbot" />
               <div id="overlay">
@@ -95,7 +114,7 @@ function Projects() {
         )}
 
         {projects.length > 2 && (
-          <div className="project-item">
+          <div class={lock} id="project-item">
             <div id="image-wrap">
               <img id="chatbot-img" src="/chatbot.png" alt="Ai-Chatbot" />
               <div id="overlay">
@@ -112,7 +131,9 @@ function Projects() {
             </div>
           </div>
         )}
-        <button onClick={slideForward}>Slide</button>
+        <button className="slide-btn" onClick={slideForward}>
+          Slide
+        </button>
       </div>
     </>
   );
